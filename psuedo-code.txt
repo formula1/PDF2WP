@@ -1,0 +1,12 @@
+Creating an admin page to upload pdf
+-On upload, convert using a method
+  -methods:
+    -API convert
+    -ImageMagick
+    -PDF Grep
+
+-Allow Raw PDF Viewing
+  -viewer PDF.js https://github.com/mozilla/pdf.js/
+
+Custom Post Type?
+-Maybe...

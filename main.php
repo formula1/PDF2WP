@@ -7,38 +7,38 @@
 * License: GPL2
 */
 
-add_action('admin_menu', 'my_plugin_menu');
-add_action( 'admin_init', 'myplugin_redirect_question' );
+add_action('admin_menu', 'pdftowp_post_menu');
+add_action( 'admin_init', 'pdftowp_post_redirect_question' );
 //Adding the post page
 //http://codex.wordpress.org/Function_Reference/add_posts_page
-function my_plugin_menu() {
+function pdftowp_post_menu() {
 	add_posts_page(
     'My Plugin Posts Page',
     'My Plugin',
     'read',
     'my-unique-identifier',
-    'myplugin_form_function'
+    'pdftowp_post_form_function'
   );
 }
-function myplugin_form_function(){
-    myplugin_form_render();
+function pdftowp_post_form_function(){
+    pdftowp_post_form_render();
 }
 
-function myplugin_redirect_question(){
+function pdftowp_post_redirect_question(){
 	if(!isset($_GET["page"]) || $_GET["page"] !="my-unique-identifier")
 		return;
 	if(!isset($_POST["submit"]) || $_POST["submit"] != "Save Changes")
 		return;
 	if(!wp_verify_nonce( $_POST['my_image_upload_nonce'], 'my_image_upload' )){
-		global $myplugin_error;
-		$myplugin_error ="Bad nonce";
+		global $pdftowp_post_error;
+		$pdftowp_post_error ="Bad nonce";
 		return;
 	}
-	myplugin_handle_upload();
+	pdftowp_post_handle_upload();
 
 }
 
-function myplugin_handle_upload(){
+function pdftowp_post_handle_upload(){
 	global $user_ID;
 	$myexec = "pdftotext ".$_FILES["pdf_file"]["tmp_name"]." -";
 	$stdout = array();
@@ -62,15 +62,15 @@ function myplugin_handle_upload(){
 }
 
 
-function myplugin_form_render(){
-	global $myplugin_error;
+function pdftowp_post_form_render(){
+	global $pdftowp_post_error;
   ?>
   <div class="wrap">
   <h2>Your Plugin Page Title</h2>
   <?php
-  if(isset($myplugin_error)){
+  if(isset($pdftowp_post_error)){
     ?>
-    <h3 style="Font-Weight:bold;color:#F00;"><?php echo $myplugin_error ?></h3>
+    <h3 style="Font-Weight:bold;color:#F00;"><?php echo $pdftowp_post_error ?></h3>
     <?php
   }
   ?>
