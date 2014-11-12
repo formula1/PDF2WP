@@ -16,7 +16,7 @@ function pdftowp_post_menu() {
     'My Plugin Posts Page',
     'My Plugin',
     'read',
-    'my-unique-identifier',
+    'pdftowp-admin',
     'pdftowp_post_form_function'
   );
 }
@@ -25,7 +25,7 @@ function pdftowp_post_form_function(){
 }
 
 function pdftowp_post_redirect_question(){
-	if(!isset($_GET["page"]) || $_GET["page"] !="my-unique-identifier")
+	if(!isset($_GET["page"]) || $_GET["page"] !="pdftowp-admin")
 		return;
 	if(!isset($_POST["submit"]) || $_POST["submit"] != "Save Changes")
 		return;
