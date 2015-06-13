@@ -1,10 +1,13 @@
 <?php
 /**
 * Plugin Name: PDF to Post
+* Plugin URI:  https://github.com/formula1/PDF2WP
 * Description: Allows Admin to add a pdf and turns it into a post
-* Version: 0.1
-* Author: Sam Tobia/Mike Wagner
-* License: GPL2
+* Version:     0.2
+* Author:      Sam Tobia / Mike Waggoner
+* Author URI:  http://in-space.org
+* License:     GPLv3
+* Text Domain: pdf2wp
 */
 
 add_action('admin_menu', 'pdftowp_post_menu');

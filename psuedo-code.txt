@@ -10,3 +10,6 @@ Creating an admin page to upload pdf
 
 Custom Post Type?
 -Maybe...
+
+Tests
+-phpunit
